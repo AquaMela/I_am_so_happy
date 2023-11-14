@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title>I_am_so_happy</title>
+  <script src="../jspsych-6.3.1/jspsych.js"></script>
+  <script src="../jspsych-6.3.1/plugins/jspsych-audio-keyboard-response.js"></script>
+  <script src="../jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js"></script>
+  <link rel="stylesheet" href="../jspsych-6.3.1/css/jspsych.css">
+</head>
+<body></body>
+  <script>
+    var audioPath = 'sound/dokaben (2).mp3';
+    var textToDisplay = '<p style="color:red; font-size: 90px;">祝 WAVEプロジェクト 脱退</p>';
+
+    var welcom = {
+        type: "html-keyboard-response",
+        stimulus: "Welcom to the experiment! Press any key to begin."
+        };
+        
+    var trial = {
+        type: 'audio-keyboard-response',
+        stimulus: audioPath,
+        choices: jsPsych.NO_KEYS,
+        trial_ends_after_audio: true
+    };
+
+    var shuku = {
+        type: 'html-keyboard-response',
+        stimulus: textToDisplay
+    }
+    
+
+    // Create the timeline
+    var timeline = [welcom, trial, shuku];
+    
+    // Run the experiment
+    jsPsych.init({
+      timeline: timeline,
+      //on_finish: function() {
+        //jsPsych.data.displayData();
+      //}
+    });
+  </script>
+</body>
+</html>
